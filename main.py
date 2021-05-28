@@ -5,19 +5,26 @@ Created on Mon Nov 16 21:16:55 2020
 @author: Matthias Sagerer
 """
 from random import randint
-points = {"2":2, "3":3, "4": 4, "5":5, "6":6, "7":7, "8":8, "9":9, "10":10, "J":10, "Q":10, "K":10, "A":11} 
+points = {"2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7,
+          "8": 8, "9": 9, "10": 10, "J": 10, "Q": 10, "K": 10, "A": 11}
+
+
 def newDeck():
     global deck
-    deck = ["2","3","4","5","6","7","8","9","10","J","Q","K","A"]
+    deck = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
     for i in range(2):
         deck.extend(deck)
+
+
 newDeck()
 
+
 def randCard():
-    num = randint(0,len(deck)-1)
+    num = randint(0, len(deck)-1)
     card = deck[num]
     del deck[num]
     return card
+
 
 def sumOfList(list):
     sum = 0
@@ -25,13 +32,14 @@ def sumOfList(list):
         sum += num
     return sum
 
+
 def countPlayerPoints(list):
     global points
     player_points = []
     ace_count = 0
     for item in list:
         if item == 'A':
-            ace_count += 1 
+            ace_count += 1
         player_points.append(points[item])
     p_points = sumOfList(player_points)
     while p_points > 21 and ace_count > 0:
@@ -45,6 +53,7 @@ def countPlayerPoints(list):
         alt = True
     all_points = [p_points, alt_points, alt]
     return all_points
+
 
 def countDealerPoints(list):
     global points
@@ -60,12 +69,15 @@ def countDealerPoints(list):
         ace_count -= 1
     return d_points
 
+
 def displayPlayerScore(score):
     if not score[2]:
         print(f'Your score is: {p_score[0]}.')
     elif score[2]:
-        print(f'Your highest possible score is {p_score[0]} and your lowest {p_score[1]}.')
-        
+        print(
+            f'Your highest possible score is {p_score[0]} and your lowest {p_score[1]}.')
+
+
 def intInput(string):
     invalid_input = True
     while invalid_input:
@@ -76,9 +88,21 @@ def intInput(string):
             print('You have to input an integer.')
     return int(num)
 
+
+class Player:
+    def __init__(self):
+        print('New Player has been created.')
+
+
+class Dealer:
+    def __init__(self):
+        print('New Dealer has been created.')
+
+
 playing = True
 while playing:
-    money = intInput('Enter the ammount of dollars that you would like to start with: $')
+    money = intInput(
+        'Enter the amount of dollars that you would like to start with: $')
     print(f'You will start with ${money}.')
     starting_money = money
     lap = True
@@ -119,11 +143,12 @@ while playing:
                 print('\nGood luck in the next round!')
                 answer = 'lost'
             else:
-                answer = input('Would you like to have another card? (y/n): ')  
+                answer = input('Would you like to have another card? (y/n): ')
                 while answer != 'y' and answer != 'n':
                     print('Please answer only by entering \'y\' or \'n\'.')
-                    answer = input('Would you like to have another card? (y/n): ')
-        if answer != 'lost':   
+                    answer = input(
+                        'Would you like to have another card? (y/n): ')
+        if answer != 'lost':
             print('\nThe dealer now takes his cards.\n')
             while d_score <= 16:
                 dealer_cards.append(randCard())
@@ -147,10 +172,12 @@ while playing:
                 print('Good luck in the next round!')
         newDeck()
         if money > 0:
-            continue_playing = input('Would you like to play another round? (y/n): ')
+            continue_playing = input(
+                'Would you like to play another round? (y/n): ')
             while continue_playing != 'y' and continue_playing != 'n':
                 print('Please answer only by entering \'y\' or \'n\'.')
-                continue_playing = input('Would you like to play another round (y/n): ')
+                continue_playing = input(
+                    'Would you like to play another round (y/n): ')
             if continue_playing == 'n':
                 lap = False
     if not lap:
@@ -166,6 +193,8 @@ while playing:
             pass
         elif another_round == 'n':
             playing = False
-print('\nThank you for playing. See you next time!')        
+print('\nThank you for playing. See you next time!')
 
-# TODO: writing cleaner code!!
+# TODO: writing cleaner code:
+#       - Dealer Class
+#       - Player Class
