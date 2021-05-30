@@ -102,6 +102,11 @@ class Player:
         while self.current_bet > self.money:
             print(f'You only have ${self.money}!')
             self.current_bet = intInput('Your bet in this round: $')
+        
+    # TODO methods:
+    #   - take card
+    #   - countPoints
+    #   - 
 
 
 class Dealer:

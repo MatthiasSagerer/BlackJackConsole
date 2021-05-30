@@ -107,3 +107,4 @@ print('\nThank you for playing. See you next time!')
 # TODO: writing cleaner code:
 #       - Dealer Class
 #       - Player Class
+#       - parent Class for Dealer and Player with inheritance
