@@ -2,6 +2,7 @@ from random import randint
 points = {"2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7,
           "8": 8, "9": 9, "10": 10, "J": 10, "Q": 10, "K": 10, "A": 11}
 
+deck = []
 
 def newDeck():
     global deck
@@ -11,6 +12,8 @@ def newDeck():
 
 
 def randCard():
+    global deck
+    print(len(deck))
     num = randint(0, len(deck)-1)
     card = deck[num]
     del deck[num]
@@ -80,19 +83,30 @@ def intInput(string):
     return int(num)
 
 
-class Player:
+class GameParticipant:
     def __init__(self):
+        print('A new game participant has been created.')
+        self.cards = []
+
+    def takeACard(self):
+        self.cards.append(randCard())
+        
+    
+
+
+class Player(GameParticipant):
+    def __init__(self):
+        super().__init__()
         print('New Player has been created.')
         self.money = 0
         self.starting_money = 0
-        current_bet = 0
+        self.current_bet = 0
 
     def selectStartingAmount(self):
         self.money = intInput(
             'Enter the amount of dollars that you would like to start with: $')
         print(f'You will start with ${self.money}.')
         self.starting_money = self.money
-        
 
     def makeABet(self):
         self.current_bet = intInput('Your bet in this round: $')
@@ -102,16 +116,26 @@ class Player:
         while self.current_bet > self.money:
             print(f'You only have ${self.money}!')
             self.current_bet = intInput('Your bet in this round: $')
-        
-    # TODO methods:
-    #   - take card
-    #   - countPoints
-    #   - 
 
 
 class Dealer:
     def __init__(self):
         print('New Dealer has been created.')
+        self.cards = []
+
+
+# for debugging.   TODO: DELETE BEFORE FINISHING THE CODE !!
+if False:
+    mario = Player()
+    print(deck)
+    newDeck()
+    mario.takeACard()
+    print(mario.cards)
+
+# TODO methods:
+#   - take card
+#   - countPoints
+#   -
 
 # TODO: dealer class
 #       - attributes: cards
