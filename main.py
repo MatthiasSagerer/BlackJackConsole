@@ -4,8 +4,8 @@ Created on Mon Nov 16 21:16:55 2020
 
 @author: Matthias Sagerer
 """
-from classes_and_functions import points, newDeck, randCard, sumOfList, countDealerPoints, countPlayerPoints, displayPlayerScore, intInput
-from classes_and_functions import Player, Dealer
+from functions import points, newDeck, randCard, sumOfList, countDealerPoints, countPlayerPoints, displayPlayerScore, intInput
+from classes import Player, Dealer
 newDeck()
 
 playing = True
