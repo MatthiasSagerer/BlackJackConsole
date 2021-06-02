@@ -1,4 +1,7 @@
-from functions import intInput, randCard
+from functions import intInput, randCard, sumOfList
+
+points = {"2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7,
+          "8": 8, "9": 9, "10": 10, "J": 10, "Q": 10, "K": 10, "A": 11}
 
 class GameParticipant:
     def __init__(self):
@@ -31,6 +34,30 @@ class Player(GameParticipant):
         while self.current_bet > self.money:
             print(f'You only have ${self.money}!')
             self.current_bet = intInput('Your bet in this round: $')
+            
+    def showCards(self):
+        print(f'\nYour cards: {self.cards[:]}')
+    
+    def countPoints(self):
+        global points
+        player_points = []
+        ace_count = 0
+        for item in self.cards:
+            if item == 'A':
+                ace_count += 1
+            player_points.append(points[item])
+        p_points = sumOfList(player_points)
+        while p_points > 21 and ace_count > 0:
+            p_points -= 10
+            ace_count -= 1
+        alt_points = p_points
+        alt = False
+        while ace_count > 0:
+            alt_points -= 10
+            ace_count -= 1
+            alt = True
+        all_points = [p_points, alt_points, alt]
+        return all_points    
 
 
 class Dealer:
@@ -47,3 +74,16 @@ if False:
     newDeck()
     mario.takeACard()
     print(mario.cards)
+    
+# TODO methods:
+#   - take card
+#   - countPoints
+#   -
+
+# TODO: dealer class
+#       - methods: new cards
+
+
+# TODO: playerclass:
+#       - methods: new cards
+#       - method countPoints -> define and use POINTS ATTRIBUTE !!
