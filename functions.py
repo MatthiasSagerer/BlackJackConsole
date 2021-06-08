@@ -4,9 +4,11 @@ points = {"2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7,
 
 deck = []
 
+
 def newDeck():
     global deck
-    NEW_DECK = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
+    NEW_DECK = ["2", "3", "4", "5", "6", "7",
+                "8", "9", "10", "J", "Q", "K", "A"]
     for i in range(4):
         deck.extend(NEW_DECK)
 
@@ -80,5 +82,3 @@ def intInput(string):
         except:
             print('You have to input an integer.')
     return int(num)
-
-

@@ -4,6 +4,7 @@ from functions import deck
 points = {"2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7,
           "8": 8, "9": 9, "10": 10, "J": 10, "Q": 10, "K": 10, "A": 11}
 
+
 class GameParticipant:
     def __init__(self):
         print('A new game participant has been created.')
@@ -36,10 +37,10 @@ class Player(GameParticipant):
         while self.current_bet > self.money:
             print(f'You only have ${self.money}!')
             self.current_bet = intInput('Your bet in this round: $')
-            
+
     def showCards(self):
         print(f'\nYour cards: {self.cards[:]}')
-    
+
     def countPoints(self):
         global points
         player_points = []
@@ -59,7 +60,7 @@ class Player(GameParticipant):
             ace_count -= 1
             alt = True
         all_points = [p_points, alt_points, alt]
-        return all_points    
+        return all_points
 
 
 class Dealer(GameParticipant):
@@ -69,31 +70,26 @@ class Dealer(GameParticipant):
         self.cards = []
 
 
-
-# for debugging.   TODO: DELETE BEFORE FINISHING THE CODE !!
+# for debugging/testing
+# TODO: DELETE BEFORE FINISHING THE CODE !!
 if True:
     mario = Player()
     realDeal = Dealer()
-    
+
     newDeck()
-    
+
     mario.takeACard()
     realDeal.takeACard()
-    
+
     print(mario.cards)
     print(realDeal.cards)
-    
+
     print(len(deck))
-    
-# TODO methods:
-#   - take card
-#   - countPoints
-#   -
 
-# TODO: dealer class
-#       - methods: new cards
+# TODO Player class:
+#   - countPoints -> define and use POINTS ATTRIBUTE
+#                    in parent Class!!
 
-
-# TODO: playerclass:
-#       - methods: new cards
-#       - method countPoints -> define and use POINTS ATTRIBUTE !!
+# TODO: dealer class:
+#   - countPoints -> define and use POINTS ATTRIBUTE
+#                    in parent Class!!
