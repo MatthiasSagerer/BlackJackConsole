@@ -4,17 +4,15 @@ points = {"2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7,
 
 deck = []
 
-
 def newDeck():
     global deck
-    deck = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
-    for i in range(2):
-        deck.extend(deck)
+    NEW_DECK = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
+    for i in range(4):
+        deck.extend(NEW_DECK)
 
 
 def randCard():
     global deck
-    print(len(deck))
     num = randint(0, len(deck)-1)
     card = deck[num]
     del deck[num]

@@ -1,4 +1,5 @@
-from functions import intInput, randCard, sumOfList
+from functions import intInput, randCard, sumOfList, newDeck
+from functions import deck
 
 points = {"2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7,
           "8": 8, "9": 9, "10": 10, "J": 10, "Q": 10, "K": 10, "A": 11}
@@ -7,6 +8,7 @@ class GameParticipant:
     def __init__(self):
         print('A new game participant has been created.')
         self.cards = []
+        self.points = 0
 
     def takeACard(self):
         self.cards.append(randCard())
@@ -60,20 +62,28 @@ class Player(GameParticipant):
         return all_points    
 
 
-class Dealer:
+class Dealer(GameParticipant):
     def __init__(self):
+        super().__init__()
         print('New Dealer has been created.')
         self.cards = []
 
 
 
 # for debugging.   TODO: DELETE BEFORE FINISHING THE CODE !!
-if False:
+if True:
     mario = Player()
-    print(deck)
+    realDeal = Dealer()
+    
     newDeck()
+    
     mario.takeACard()
+    realDeal.takeACard()
+    
     print(mario.cards)
+    print(realDeal.cards)
+    
+    print(len(deck))
     
 # TODO methods:
 #   - take card

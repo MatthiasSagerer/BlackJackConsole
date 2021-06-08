@@ -104,6 +104,22 @@ while playing:
             playing = False
 print('\nThank you for playing. See you next time!')
 
+# IMPLEMENTATION WITH CLASSES
+'''
+playing = True
+while playing:
+    player = Player()
+    player.selectStartingAmount()
+    
+    lap = True
+    
+    while player.money > 0 and lap == True:
+        player.makeABet()
+        
+        player.takeACard()
+'''
+
+
 # TODO: writing cleaner code:
 #       - Dealer Class
 #       - Player Class
