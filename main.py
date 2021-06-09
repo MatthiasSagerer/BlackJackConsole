@@ -108,7 +108,10 @@ print('\nThank you for playing. See you next time!')
 '''
 playing = True
 while playing:
+    dealer = Dealer()
     player = Player()
+    
+    newDeck()
     player.selectStartingAmount()
     
     lap = True
@@ -116,7 +119,9 @@ while playing:
     while player.money > 0 and lap == True:
         player.makeABet()
         
-        player.takeACard()
-'''
+        player.takeCards(2)
+        dealer.takeCards()
+        
+# '''
 
 # TODO: see classes.py

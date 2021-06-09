@@ -11,8 +11,9 @@ class GameParticipant:
         self.cards = []
         self.points = 0
 
-    def takeACard(self):
-        self.cards.append(randCard())
+    def takeCards(self, num=1):
+        for i in range(num):
+            self.cards.append(randCard())
 
 
 class Player(GameParticipant):
@@ -78,8 +79,8 @@ if True:
 
     newDeck()
 
-    mario.takeACard()
-    realDeal.takeACard()
+    mario.takeCards(3)
+    realDeal.takeCards()
 
     print(mario.cards)
     print(realDeal.cards)
