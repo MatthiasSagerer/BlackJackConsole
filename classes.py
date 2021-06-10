@@ -44,13 +44,13 @@ class Player(GameParticipant):
 
     def countPoints(self):
         global points
-        player_points = []
+        temp_points = []
         ace_count = 0
         for item in self.cards:
             if item == 'A':
                 ace_count += 1
-            player_points.append(points[item])
-        p_points = sumOfList(player_points)
+            temp_points.append(points[item])
+        p_points = sumOfList(temp_points)
         while p_points > 21 and ace_count > 0:
             p_points -= 10
             ace_count -= 1
@@ -60,8 +60,8 @@ class Player(GameParticipant):
             alt_points -= 10
             ace_count -= 1
             alt = True
-        all_points = [p_points, alt_points, alt]
-        return all_points
+        self.points = [p_points, alt_points, alt]
+        return self.points
 
 
 class Dealer(GameParticipant):
@@ -69,6 +69,19 @@ class Dealer(GameParticipant):
         super().__init__()
         print('New Dealer has been created.')
         self.cards = []
+
+    def countPoints(self):
+        temp_points = []
+        ace_count = 0
+        for item in self.cards:
+            if item == 'A':
+                ace_count += 1
+            temp_points.append(points[item])
+        self.points = sumOfList(temp_points)
+        while self.points > 21 and ace_count > 0:
+            self.points -= 10
+            ace_count -= 1
+        return self.points
 
 
 # for debugging/testing
@@ -79,13 +92,16 @@ if True:
 
     newDeck()
 
-    mario.takeCards(3)
+    mario.takeCards(2)
     realDeal.takeCards()
 
     print(mario.cards)
     print(realDeal.cards)
+    
+    print(f'Player Points: {mario.countPoints()}')
+    print(f'Dealer Points: {realDeal.countPoints()}')
 
-    print(len(deck))
+    print(f'{len(deck)} cards left in the deck')
 
 # TODO Player class:
 #   - countPoints -> define and use POINTS ATTRIBUTE
