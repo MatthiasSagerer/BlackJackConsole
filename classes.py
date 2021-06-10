@@ -44,13 +44,13 @@ class Player(GameParticipant):
 
     def countPoints(self):
         global points
-        temp_points = []
+        temp_points_list = []
         ace_count = 0
         for item in self.cards:
             if item == 'A':
                 ace_count += 1
-            temp_points.append(points[item])
-        p_points = sumOfList(temp_points)
+            temp_points_list.append(points[item])
+        p_points = sumOfList(temp_points_list)
         while p_points > 21 and ace_count > 0:
             p_points -= 10
             ace_count -= 1
@@ -60,7 +60,11 @@ class Player(GameParticipant):
             alt_points -= 10
             ace_count -= 1
             alt = True
-        self.points = [p_points, alt_points, alt]
+        temp_score = [p_points, alt_points, alt]
+        if not temp_score[2]:
+            self.points = temp_score[0]
+        elif temp_score[2]:
+            self.points = temp_score[0]
         return self.points
 
 
@@ -71,13 +75,13 @@ class Dealer(GameParticipant):
         self.cards = []
 
     def countPoints(self):
-        temp_points = []
+        temp_points_list = []
         ace_count = 0
         for item in self.cards:
             if item == 'A':
                 ace_count += 1
-            temp_points.append(points[item])
-        self.points = sumOfList(temp_points)
+            temp_points_list.append(points[item])
+        self.points = sumOfList(temp_points_list)
         while self.points > 21 and ace_count > 0:
             self.points -= 10
             ace_count -= 1
