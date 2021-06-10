@@ -101,16 +101,8 @@ if True:
 
     print(mario.cards)
     print(realDeal.cards)
-    
+
     print(f'Player Points: {mario.countPoints()}')
     print(f'Dealer Points: {realDeal.countPoints()}')
 
     print(f'{len(deck)} cards left in the deck')
-
-# TODO Player class:
-#   - countPoints -> define and use POINTS ATTRIBUTE
-#                    in parent Class!!
-
-# TODO: dealer class:
-#   - countPoints -> define and use POINTS ATTRIBUTE
-#                    in parent Class!!
