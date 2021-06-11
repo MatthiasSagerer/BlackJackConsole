@@ -7,7 +7,6 @@ points = {"2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7,
 
 class GameParticipant:
     def __init__(self):
-        print('A new game participant has been created.')
         self.cards = []
         self.points = 0
 
@@ -19,7 +18,7 @@ class GameParticipant:
 class Player(GameParticipant):
     def __init__(self):
         super().__init__()
-        print('New Player has been created.')
+        print('Welcome to Black Jack.')
         self.money = 0
         self.starting_money = 0
         self.current_bet = 0
@@ -60,18 +59,19 @@ class Player(GameParticipant):
             alt_points -= 10
             ace_count -= 1
             alt = True
-        temp_score = [p_points, alt_points, alt]
-        if not temp_score[2]:
-            self.points = temp_score[0]
-        elif temp_score[2]:
-            self.points = temp_score[0]
+        self.points = [p_points, alt_points, alt]
+    
+    def showPoints(self):
+        if not self.points[2]:
+            print(f'Your score is: {self.points[0]}.')
+        elif self.points[2]:
+            print(f'Your hand has either {self.points[0]} points or {self.points[1]} points.')
         return self.points
 
 
 class Dealer(GameParticipant):
     def __init__(self):
         super().__init__()
-        print('New Dealer has been created.')
         self.cards = []
 
     def countPoints(self):
@@ -87,10 +87,13 @@ class Dealer(GameParticipant):
             ace_count -= 1
         return self.points
 
+    def showPoints(self):
+        print(f'The dealer hand has {self.points} points.')
+
 
 # for debugging/testing
 # TODO: DELETE BEFORE FINISHING THE CODE !!
-if True:
+if False:
     mario = Player()
     realDeal = Dealer()
 
