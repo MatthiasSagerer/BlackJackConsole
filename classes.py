@@ -67,6 +67,9 @@ class Player(GameParticipant):
         elif self.points[2]:
             print(f'Your hand has either {self.points[0]} points or {self.points[1]} points.')
         return self.points
+    
+    def showCards(self):
+        print(f'Your cards are {self.cards[:]}')
 
 
 class Dealer(GameParticipant):
@@ -89,6 +92,12 @@ class Dealer(GameParticipant):
 
     def showPoints(self):
         print(f'The dealer hand has {self.points} points.')
+        
+    def showCards(self):
+        if len(self.cards) == 1:
+            print(f'The dealer\' card is {self.cards[:]}')
+        elif len(self.cards) < 1:
+            print(f'The dealer\'s cards are {self.cards[:]}')
 
 
 # for debugging/testing

@@ -127,6 +127,8 @@ def blackJackConsole():
             player.countPoints()
             dealer.countPoints()
             
+            dealer.showCards()
+            player.showCards()
             dealer.showPoints()
             player.showPoints()
             
