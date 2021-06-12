@@ -22,6 +22,8 @@ class Player(GameParticipant):
         self.money = 0
         self.starting_money = 0
         self.current_bet = 0
+        self.another_card = False
+        self.lost_round = False
 
     def selectStartingAmount(self):
         self.money = intInput(
@@ -66,10 +68,28 @@ class Player(GameParticipant):
             print(f'Your score is: {self.points[0]}.')
         elif self.points[2]:
             print(f'Your hand has either {self.points[0]} points or {self.points[1]} points.')
-        return self.points
     
     def showCards(self):
         print(f'Your cards are {self.cards[:]}')
+        
+    def askForAnotherCard(self):
+        answer = input('Would you like to have another card? (y/n): ')
+        while answer != 'y' and answer != 'n':
+            print('Please answer only by entering \'y\' or \'n\'.')
+            answer = input('Would you like to have another card? (y/n): ')
+        if answer == 'y':
+            self.another_card = True
+        elif answer == 'n':
+            self.another_card = False
+            
+    def lostBecauseToManyPoints(self):
+        self.money -= self.current_bet
+        print('\nUnfortunately you lost this round')
+        print(f'You got ${self.money} left.')
+        print('\nGood luck in the next round!')
+        
+        self.lost_round = True
+            
 
 
 class Dealer(GameParticipant):
