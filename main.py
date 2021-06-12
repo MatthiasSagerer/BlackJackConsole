@@ -155,6 +155,13 @@ def blackJackConsole():
                     player.lostBecauseToManyPoints()
                 else:
                     player.askForAnotherCard()
+            if not player.lost_round:
+                dealer.takeEndCards()
+                dealer.showCards()
+                dealer.showPoints()
+                
+                player.showCards()
+                player.showPoints()
 
 
 if __name__ == "__main__":

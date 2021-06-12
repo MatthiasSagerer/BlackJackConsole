@@ -118,6 +118,12 @@ class Dealer(GameParticipant):
             print(f'The dealer\' card is {self.cards[:]}')
         elif len(self.cards) < 1:
             print(f'The dealer\'s cards are {self.cards[:]}')
+        
+    def takeEndCards(self):
+        print('\nThe dealer now takes his cars.\n')
+        while self.points <= 16:
+            self.takeCards()
+            self.countPoints()
 
 
 # for debugging/testing
