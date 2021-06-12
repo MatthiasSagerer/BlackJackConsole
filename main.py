@@ -134,10 +134,8 @@ def blackJackConsole():
             player.countPoints()
             dealer.countPoints()
 
-            dealer.showCards()
-            player.showCards()
-            dealer.showPoints()
-            player.showPoints()
+            dealer.showCardsAndPoints()
+            player.showCardsAndPoints()
 
             player.askForAnotherCard()
 
@@ -145,11 +143,8 @@ def blackJackConsole():
                 player.takeCards()
                 player.countPoints()
 
-                dealer.showCards()
-                dealer.showPoints()
-
-                player.showCards()
-                player.showPoints()
+                dealer.showCardsAndPoints()
+                player.showCardsAndPoints()
 
                 if player.points[0] > 21:
                     player.lostBecauseToManyPoints()
@@ -157,11 +152,9 @@ def blackJackConsole():
                     player.askForAnotherCard()
             if not player.lost_round:
                 dealer.takeEndCards()
-                dealer.showCards()
-                dealer.showPoints()
-                
-                player.showCards()
-                player.showPoints()
+
+                dealer.showCardsAndPoints()
+                player.showCardsAndPoints()
 
 
 if __name__ == "__main__":

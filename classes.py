@@ -71,6 +71,10 @@ class Player(GameParticipant):
     
     def showCards(self):
         print(f'Your cards are {self.cards[:]}')
+    
+    def showCardsAndPoints(self):
+        self.showPoints()
+        self.showCards()
         
     def askForAnotherCard(self):
         answer = input('Would you like to have another card? (y/n): ')
@@ -118,6 +122,10 @@ class Dealer(GameParticipant):
             print(f'The dealer\' card is {self.cards[:]}')
         elif len(self.cards) < 1:
             print(f'The dealer\'s cards are {self.cards[:]}')
+    
+    def showCardsAndPoints(self):
+        self.showPoints()
+        self.showCards()
         
     def takeEndCards(self):
         print('\nThe dealer now takes his cars.\n')
