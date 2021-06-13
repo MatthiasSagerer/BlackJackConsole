@@ -4,7 +4,7 @@ Created on Mon Nov 16 21:16:55 2020
 
 @author: Matthias Sagerer
 """
-from functions import points, newDeck, randCard, sumOfList, countDealerPoints, countPlayerPoints, displayPlayerScore, intInput
+from functions import points, newDeck, randCard, countDealerPoints, countPlayerPoints, displayPlayerScore, intInput, itsATie, askForNewRound
 from classes import Player, Dealer
 
 
@@ -78,7 +78,7 @@ def blackJackwithoutClasses():
                     print(f'You now have ${money}')
                 elif p_score[0] < d_score:
                     money -= bet
-                    print('\nUnfortunately you lost this round')
+                    print('\nUnfortunately you lost this round.')
                     print(f'You got ${money} left.')
                     print('\nGood luck in the next round!')
                 elif p_score[0] == d_score:
@@ -155,6 +155,16 @@ def blackJackConsole():
 
                 dealer.showCardsAndPoints()
                 player.showCardsAndPoints()
+
+                if player.points[0] > dealer.points or dealer.points > 21:
+                    player.wins()
+                elif player.points[0] < dealer.points:
+                    player.loses()
+                elif player.points[0] == dealer.points:
+                    itsATie(player)
+            newDeck()
+            if player.money > 0:
+                lap = askForNewRound()
 
 
 if __name__ == "__main__":

@@ -1,3 +1,4 @@
+from random import betavariate
 from functions import intInput, randCard, sumOfList, newDeck
 from functions import deck
 
@@ -62,20 +63,21 @@ class Player(GameParticipant):
             ace_count -= 1
             alt = True
         self.points = [p_points, alt_points, alt]
-    
+
     def showPoints(self):
         if not self.points[2]:
             print(f'Your score is: {self.points[0]}.')
         elif self.points[2]:
-            print(f'Your hand has either {self.points[0]} points or {self.points[1]} points.')
-    
+            print(
+                f'Your hand has either {self.points[0]} points or {self.points[1]} points.')
+
     def showCards(self):
         print(f'Your cards are {self.cards[:]}')
-    
+
     def showCardsAndPoints(self):
         self.showPoints()
         self.showCards()
-        
+
     def askForAnotherCard(self):
         answer = input('Would you like to have another card? (y/n): ')
         while answer != 'y' and answer != 'n':
@@ -85,15 +87,26 @@ class Player(GameParticipant):
             self.another_card = True
         elif answer == 'n':
             self.another_card = False
-            
+
     def lostBecauseToManyPoints(self):
         self.money -= self.current_bet
         print('\nUnfortunately you lost this round')
         print(f'You got ${self.money} left.')
         print('\nGood luck in the next round!')
-        
+
         self.lost_round = True
-            
+
+    def wins(self):
+        self.money += self.current_bet
+        print(f'\n Congratulations! You\'ve won ${self.current_bet}')
+        print(f'You now have ${self.money}')
+
+    def loses(self):
+        self.money -= self.current_bet
+        print('\nUnfortunately you lost this round.')
+        print(f'You\'ve lost ${self.current_bet} in this round.')
+        print(f'You got ${self.money} left.')
+        print('\nGood luck in the next round!')
 
 
 class Dealer(GameParticipant):
@@ -116,17 +129,17 @@ class Dealer(GameParticipant):
 
     def showPoints(self):
         print(f'The dealer hand has {self.points} points.')
-        
+
     def showCards(self):
         if len(self.cards) == 1:
             print(f'The dealer\' card is {self.cards[:]}')
         elif len(self.cards) < 1:
             print(f'The dealer\'s cards are {self.cards[:]}')
-    
+
     def showCardsAndPoints(self):
         self.showPoints()
         self.showCards()
-        
+
     def takeEndCards(self):
         print('\nThe dealer now takes his cars.\n')
         while self.points <= 16:

@@ -82,3 +82,21 @@ def intInput(string):
         except:
             print('You have to input an integer.')
     return int(num)
+
+
+def itsATie(play):
+    print('It\'s a tie!')
+    print(f'You got ${play.money} left.')
+    print('Good luck in the next round!')
+
+
+def askForNewRound():
+    continue_playing = input(
+        'Would you like to play another round? (y/n): ')
+    while continue_playing != 'y' and continue_playing != 'n':
+        print('Please answer only by entering \'y\' or \'n\'.')
+        continue_playing = input(
+            'Would you like to play another round (y/n): ')
+    if continue_playing == 'n':
+        return False
+    return True
