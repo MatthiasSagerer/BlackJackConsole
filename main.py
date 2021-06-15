@@ -4,7 +4,7 @@ Created on Mon Nov 16 21:16:55 2020
 
 @author: Matthias Sagerer
 """
-from functions import points, newDeck, randCard, countDealerPoints, countPlayerPoints, displayPlayerScore, intInput, itsATie, askForNewRound
+from functions import lostRoundAskForNew, points, newDeck, randCard, countDealerPoints, countPlayerPoints, displayPlayerScore, intInput, itsATie, askForNewRound
 from classes import Player, Dealer
 
 
@@ -104,7 +104,7 @@ def blackJackwithoutClasses():
             another_round = input('Would you like to play again? (y/n): ')
             while another_round != 'y' and another_round != 'n':
                 print('Please answer only by entering \'y\' or \'n\'.')
-                another_round = input('Would you like to play again? (y/n): ')
+                another_round = input(' Would you like to play again? (y/n): ')
             if another_round == 'y':
                 pass
             elif another_round == 'n':
@@ -165,10 +165,18 @@ def blackJackConsole():
             newDeck()
             if player.money > 0:
                 lap = askForNewRound()
+        if not lap:
+            player.showEndResult
+            playing = False
+        else:
+            playing = lostRoundAskForNew()
+    print('\nThank you for playing. See you next time!')
 
 
 if __name__ == "__main__":
     blackJackwithoutClasses()
     # blackJackConsole()
 
-# TODO: When class implementation is finished: DELETE ORIGINAL CODE!
+# TODO: When class implementation is finished:
+#           - test new implementation
+#           - DELETE ORIGINAL CODE!

@@ -100,3 +100,15 @@ def askForNewRound():
     if continue_playing == 'n':
         return False
     return True
+
+
+def lostRoundAskForNew():
+    print('You have run out of money...')
+    another_round = input('Would you like to play again? (y/n): ')
+    while another_round != 'y' and another_round != 'n':
+        print('Please answer only by entering \'y\' or \'n\'.')
+        another_round = input('Would you like to play again? (y/n): ')
+    if another_round == 'y':
+        return True
+    elif another_round == 'n':
+        return False

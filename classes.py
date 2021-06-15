@@ -108,6 +108,10 @@ class Player(GameParticipant):
         print(f'You got ${self.money} left.')
         print('\nGood luck in the next round!')
 
+    def showEndResult(self):
+        print(
+            f'\nYour started with ${self.starting_money} and now have ${self.money}!')
+
 
 class Dealer(GameParticipant):
     def __init__(self):
