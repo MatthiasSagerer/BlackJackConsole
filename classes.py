@@ -149,23 +149,3 @@ class Dealer(GameParticipant):
         while self.points <= 16:
             self.takeCards()
             self.countPoints()
-
-
-# for debugging/testing
-# TODO: DELETE BEFORE FINISHING THE CODE !!
-if False:
-    mario = Player()
-    realDeal = Dealer()
-
-    newDeck()
-
-    mario.takeCards(2)
-    realDeal.takeCards()
-
-    print(mario.cards)
-    print(realDeal.cards)
-
-    print(f'Player Points: {mario.countPoints()}')
-    print(f'Dealer Points: {realDeal.countPoints()}')
-
-    print(f'{len(deck)} cards left in the deck')
