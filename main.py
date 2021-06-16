@@ -174,8 +174,11 @@ def blackJackConsole():
 
 
 if __name__ == "__main__":
-    blackJackwithoutClasses()
-    # blackJackConsole()
+    # blackJackwithoutClasses()
+    blackJackConsole()
+
+# BUG fix: Delete cards after one round
+# BUG fix: player can win with more than 21 points
 
 # TODO: When class implementation is finished:
 #           - test new implementation

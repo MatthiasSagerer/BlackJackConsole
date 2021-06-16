@@ -98,7 +98,7 @@ class Player(GameParticipant):
 
     def wins(self):
         self.money += self.current_bet
-        print(f'\n Congratulations! You\'ve won ${self.current_bet}')
+        print(f'\nCongratulations! You\'ve won ${self.current_bet}')
         print(f'You now have ${self.money}')
 
     def loses(self):
