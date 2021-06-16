@@ -177,9 +177,11 @@ if __name__ == "__main__":
     # blackJackwithoutClasses()
     blackJackConsole()
 
-# BUG fix: Delete cards after one round
+# BUG fix: use resetCards methods to reset hand of player and dealer
 # BUG fix: player can win with more than 21 points
 
 # TODO: When class implementation is finished:
+#           - show starting money and increase in % at the end of every game
+#           - check if the deck gets reset in any possible game course
 #           - test new implementation
 #           - DELETE ORIGINAL CODE!

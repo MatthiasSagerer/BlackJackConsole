@@ -15,6 +15,9 @@ class GameParticipant:
         for i in range(num):
             self.cards.append(randCard())
 
+    def resetCards(self):
+        self.cards = []
+
 
 class Player(GameParticipant):
     def __init__(self):
@@ -106,7 +109,7 @@ class Player(GameParticipant):
         print('\nUnfortunately you lost this round.')
         print(f'You\'ve lost ${self.current_bet} in this round.')
         print(f'You got ${self.money} left.')
-        print('\nGood luck in the next round!')
+        print('\nGood luck next time!\n')
 
     def showEndResult(self):
         print(
