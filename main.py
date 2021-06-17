@@ -126,6 +126,11 @@ def blackJackConsole():
         while player.money > 0 and lap == True:
             player.lost_round = False
 
+            newDeck()
+
+            dealer.resetCards()
+            player.resetCards()
+
             player.makeABet()
 
             player.takeCards(2)
@@ -146,6 +151,7 @@ def blackJackConsole():
                 dealer.showCardsAndPoints()
                 player.showCardsAndPoints()
 
+                player.another_card = False
                 if player.points[0] > 21:
                     player.lostBecauseToManyPoints()
                 else:
@@ -162,7 +168,6 @@ def blackJackConsole():
                     player.loses()
                 elif player.points[0] == dealer.points:
                     itsATie(player)
-            newDeck()
             if player.money > 0:
                 lap = askForNewRound()
         if not lap:
@@ -177,10 +182,8 @@ if __name__ == "__main__":
     # blackJackwithoutClasses()
     blackJackConsole()
 
-# BUG fix: use resetCards methods to reset hand of player and dealer
-# BUG fix: player can win with more than 21 points
-
 # TODO: When class implementation is finished:
+#           - test if card deck is used properly: number of cards left
 #           - show starting money and increase in % at the end of every game
 #           - check if the deck gets reset in any possible game course
 #           - test new implementation
