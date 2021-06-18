@@ -4,8 +4,9 @@ Created on Mon Nov 16 21:16:55 2020
 
 @author: Matthias Sagerer
 """
-from functions import lostRoundAskForNew, points, newDeck, randCard, countDealerPoints, countPlayerPoints, displayPlayerScore, intInput, itsATie, askForNewRound
+from functions import lostRoundAskForNew, newDeck, randCard, countDealerPoints, countPlayerPoints, displayPlayerScore, intInput, itsATie, askForNewRound
 from classes import Player, Dealer
+from classes import deck
 
 
 def blackJackwithoutClasses():
@@ -168,6 +169,7 @@ def blackJackConsole():
                     player.loses()
                 elif player.points[0] == dealer.points:
                     itsATie(player)
+            print(f'{len(deck)} cards left in the deck.')
             if player.money > 0:
                 lap = askForNewRound()
         if not lap:
@@ -183,8 +185,12 @@ if __name__ == "__main__":
     blackJackConsole()
 
 # TODO: When class implementation is finished:
-#           - test if card deck is used properly: number of cards left
+#           - test if card deck is used properly: number of cards left:
+#               - create one global deck variable for dealer and player
+#               - test in classes.py the functionality of the deck variable
+#               - test in main.py the functionality of the deck variable
 #           - show starting money and increase in % at the end of every game
 #           - check if the deck gets reset in any possible game course
 #           - test new implementation
+#           - edit imports
 #           - DELETE ORIGINAL CODE!

@@ -1,15 +1,30 @@
-from random import betavariate
-from functions import intInput, randCard, sumOfList, newDeck
+from random import randint
+from functions import intInput, randCard, sumOfList
 from functions import deck
 
-points = {"2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7,
+POINTS = {"2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7,
           "8": 8, "9": 9, "10": 10, "J": 10, "Q": 10, "K": 10, "A": 11}
 
+deck = []
 
+def newDeck():
+    global deck
+    deck = []
+    NEW_DECK = ["2", "3", "4", "5", "6", "7",
+                "8", "9", "10", "J", "Q", "K", "A"]
+    for i in range(4):
+        deck.extend(NEW_DECK)
 class GameParticipant:
     def __init__(self):
         self.cards = []
         self.points = 0
+
+    def randCard():
+        global deck
+        num = randint(0, len(deck)-1)
+        card = deck[num]
+        del deck[num]
+        return card
 
     def takeCards(self, num=1):
         for i in range(num):
