@@ -7,6 +7,7 @@ POINTS = {"2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7,
 
 deck = []
 
+
 def newDeck():
     global deck
     deck = []
@@ -14,6 +15,8 @@ def newDeck():
                 "8", "9", "10", "J", "Q", "K", "A"]
     for i in range(4):
         deck.extend(NEW_DECK)
+
+
 class GameParticipant:
     def __init__(self):
         self.cards = []
@@ -96,7 +99,7 @@ class Player(GameParticipant):
         self.countPoints()
         self.showPoints()
         self.showCards()
-        print(len(deck)) # TODO: THIS LINE MUST BE DELETED AT THE END !!
+        print(len(deck))  # TODO: THIS LINE MUST BE DELETED AT THE END !!
 
     def askForAnotherCard(self):
         answer = input('Would you like to have another card? (y/n): ')
