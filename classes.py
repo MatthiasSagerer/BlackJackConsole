@@ -63,13 +63,13 @@ class Player(GameParticipant):
         print(f'\nYour cards: {self.cards[:]}')
 
     def countPoints(self):
-        global points
+        global POINTS
         temp_points_list = []
         ace_count = 0
         for item in self.cards:
             if item == 'A':
                 ace_count += 1
-            temp_points_list.append(points[item])
+            temp_points_list.append(POINTS[item])
         p_points = sumOfList(temp_points_list)
         while p_points > 21 and ace_count > 0:
             p_points -= 10
@@ -95,6 +95,7 @@ class Player(GameParticipant):
     def showCardsAndPoints(self):
         self.showPoints()
         self.showCards()
+        print(len(deck))
 
     def askForAnotherCard(self):
         answer = input('Would you like to have another card? (y/n): ')
@@ -142,7 +143,7 @@ class Dealer(GameParticipant):
         for item in self.cards:
             if item == 'A':
                 ace_count += 1
-            temp_points_list.append(points[item])
+            temp_points_list.append(POINTS[item])
         self.points = sumOfList(temp_points_list)
         while self.points > 21 and ace_count > 0:
             self.points -= 10
