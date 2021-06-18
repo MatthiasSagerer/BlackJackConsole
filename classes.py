@@ -93,9 +93,10 @@ class Player(GameParticipant):
         print(f'Your cards are {self.cards[:]}')
 
     def showCardsAndPoints(self):
+        self.countPoints()
         self.showPoints()
         self.showCards()
-        print(len(deck))
+        print(len(deck)) # TODO: THIS LINE MUST BE DELETED AT THE END !!
 
     def askForAnotherCard(self):
         answer = input('Would you like to have another card? (y/n): ')
@@ -160,6 +161,7 @@ class Dealer(GameParticipant):
             print(f'The dealer\'s cards are {self.cards[:]}')
 
     def showCardsAndPoints(self):
+        self.countPoints()
         self.showPoints()
         self.showCards()
 

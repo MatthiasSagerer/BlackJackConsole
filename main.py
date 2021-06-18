@@ -137,9 +137,6 @@ def blackJackConsole():
             player.takeCards(2)
             dealer.takeCards()
 
-            player.countPoints()
-            dealer.countPoints()
-
             dealer.showCardsAndPoints()
             player.showCardsAndPoints()
 
@@ -147,7 +144,6 @@ def blackJackConsole():
 
             while player.another_card:
                 player.takeCards()
-                player.countPoints()
 
                 dealer.showCardsAndPoints()
                 player.showCardsAndPoints()
