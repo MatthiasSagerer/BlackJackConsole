@@ -17,6 +17,18 @@ def newDeck():
         deck.extend(NEW_DECK)
 
 
+class Game():
+    def __init__(self):
+        card_deck = self.newDeck()
+
+    def newDeck(self):
+        self.card_deck = []
+        NEW_DECK = ["2", "3", "4", "5", "6", "7",
+                    "8", "9", "10", "J", "Q", "K", "A"]
+        for i in range(4):
+            self.card_deck.extend(NEW_DECK)
+
+
 class GameParticipant:
     def __init__(self):
         self.cards = []

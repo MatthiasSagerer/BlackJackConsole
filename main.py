@@ -180,12 +180,14 @@ if __name__ == "__main__":
     # blackJackwithoutClasses()
     blackJackConsole()
 
+# TODO: implement game class with game instance:
+#           - integrate game instance
+#           - integrate game instance's card deck
+#           - test if card_deck is used properly
+
+# TODO: show starting money and increase in % at the end of every game
+
 # TODO: When class implementation is finished:
-#           - test if card deck is used properly: number of cards left:
-#               - create one global deck variable for dealer and player
-#               - test in classes.py the functionality of the deck variable
-#               - test in main.py the functionality of the deck variable
-#           - show starting money and increase in % at the end of every game
 #           - check if the deck gets reset in any possible game course
 #           - test new implementation
 #           - edit imports
