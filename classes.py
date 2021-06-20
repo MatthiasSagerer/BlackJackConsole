@@ -28,6 +28,12 @@ class Game():
         for i in range(4):
             self.card_deck.extend(NEW_DECK)
 
+    def randCard(self):
+        num = randint(0, len(self.card_deck)-1)
+        card = self.card_deck[num]
+        del self.card_deck[num]
+        return card
+
 
 class GameParticipant:
     def __init__(self):
@@ -41,9 +47,9 @@ class GameParticipant:
         del deck[num]
         return card
 
-    def takeCards(self, num=1):
+    def takeCards(self, game, num=1):
         for i in range(num):
-            self.cards.append(randCard())
+            self.cards.append(game.randCard())
 
     def resetCards(self):
         self.cards = []
@@ -185,3 +191,14 @@ class Dealer(GameParticipant):
         while self.points <= 16:
             self.takeCards()
             self.countPoints()
+
+
+# Testing (TODO: DELETE WHEN CODE FINISHED)
+
+if __name__ == "__main__":
+    mario = Player()
+    game = Game()
+
+    mario.takeCards(game, num=3)
+    print(f'Marios cards: {mario.cards}')
+    print(f'{len(game.card_deck)} cards left in the deck.')

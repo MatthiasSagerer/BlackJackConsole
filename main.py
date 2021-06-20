@@ -192,3 +192,5 @@ if __name__ == "__main__":
 #           - test new implementation
 #           - edit imports
 #           - DELETE ORIGINAL CODE!
+
+# TODO: delete testing in classes.py file
