@@ -127,7 +127,7 @@ def blackJackConsole():
         while player.money > 0 and lap == True:
             player.lost_round = False
 
-            newDeck()
+            
 
             dealer.resetCards()
             player.resetCards()
@@ -169,7 +169,7 @@ def blackJackConsole():
             if player.money > 0:
                 lap = askForNewRound()
         if not lap:
-            player.showEndResult
+            player.showEndResult()
             playing = False
         else:
             playing = lostRoundAskForNew()

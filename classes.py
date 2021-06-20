@@ -17,7 +17,7 @@ def newDeck():
         deck.extend(NEW_DECK)
 
 
-class Game():
+class Round():
     def __init__(self):
         card_deck = self.newDeck()
 
@@ -40,16 +40,9 @@ class GameParticipant:
         self.cards = []
         self.points = 0
 
-    def randCard():
-        global deck
-        num = randint(0, len(deck)-1)
-        card = deck[num]
-        del deck[num]
-        return card
-
-    def takeCards(self, game, num=1):
+    def takeCards(self, round, num=1):
         for i in range(num):
-            self.cards.append(game.randCard())
+            self.cards.append(round.randCard())
 
     def resetCards(self):
         self.cards = []
@@ -197,8 +190,11 @@ class Dealer(GameParticipant):
 
 if __name__ == "__main__":
     mario = Player()
-    game = Game()
+    dealer = Dealer()
+    round = Round()
 
-    mario.takeCards(game, num=3)
-    print(f'Marios cards: {mario.cards}')
-    print(f'{len(game.card_deck)} cards left in the deck.')
+    mario.takeCards(round, num=3)
+    dealer.takeCards(round, num=2)
+    
+    print(f'Mario\'s cards: {mario.cards}')
+    print(f'{len(round.card_deck)} cards left in the deck.')
