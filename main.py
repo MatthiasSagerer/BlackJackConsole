@@ -5,7 +5,7 @@ Created on Mon Nov 16 21:16:55 2020
 @author: Matthias Sagerer
 """
 from functions import lostRoundAskForNew, newDeck, randCard, countDealerPoints, countPlayerPoints, displayPlayerScore, intInput, itsATie, askForNewRound
-from classes import Player, Dealer
+from classes import Player, Dealer, Round
 from classes import deck
 
 
@@ -127,15 +127,15 @@ def blackJackConsole():
         while player.money > 0 and lap == True:
             player.lost_round = False
 
+            round = Round()
             
-
             dealer.resetCards()
             player.resetCards()
 
             player.makeABet()
 
-            player.takeCards(2)
-            dealer.takeCards()
+            player.takeCards(round, num=2)
+            dealer.takeCards(round)
 
             dealer.showCardsAndPoints()
             player.showCardsAndPoints()
@@ -143,7 +143,7 @@ def blackJackConsole():
             player.askForAnotherCard()
 
             while player.another_card:
-                player.takeCards()
+                player.takeCards(round)
 
                 dealer.showCardsAndPoints()
                 player.showCardsAndPoints()
@@ -154,7 +154,7 @@ def blackJackConsole():
                 else:
                     player.askForAnotherCard()
             if not player.lost_round:
-                dealer.takeEndCards()
+                dealer.takeEndCards(round)
 
                 dealer.showCardsAndPoints()
                 player.showCardsAndPoints()

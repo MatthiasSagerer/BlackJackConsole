@@ -40,9 +40,9 @@ class GameParticipant:
         self.cards = []
         self.points = 0
 
-    def takeCards(self, round, num=1):
+    def takeCards(self, current_round, num=1):
         for i in range(num):
-            self.cards.append(round.randCard())
+            self.cards.append(current_round.randCard())
 
     def resetCards(self):
         self.cards = []
@@ -110,7 +110,6 @@ class Player(GameParticipant):
         self.countPoints()
         self.showPoints()
         self.showCards()
-        print(len(deck))  # TODO: THIS LINE MUST BE DELETED AT THE END !!
 
     def askForAnotherCard(self):
         answer = input('Would you like to have another card? (y/n): ')
@@ -179,10 +178,10 @@ class Dealer(GameParticipant):
         self.showPoints()
         self.showCards()
 
-    def takeEndCards(self):
+    def takeEndCards(self, current_round):
         print('\nThe dealer now takes his cars.\n')
         while self.points <= 16:
-            self.takeCards()
+            self.takeCards(current_round)
             self.countPoints()
 
 
@@ -195,6 +194,6 @@ if __name__ == "__main__":
 
     mario.takeCards(round, num=3)
     dealer.takeCards(round, num=2)
-    
+
     print(f'Mario\'s cards: {mario.cards}')
     print(f'{len(round.card_deck)} cards left in the deck.')
