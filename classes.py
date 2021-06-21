@@ -108,8 +108,8 @@ class Player(GameParticipant):
 
     def showCardsAndPoints(self):
         self.countPoints()
-        self.showPoints()
         self.showCards()
+        self.showPoints()
 
     def askForAnotherCard(self):
         answer = input('Would you like to have another card? (y/n): ')
@@ -175,8 +175,8 @@ class Dealer(GameParticipant):
 
     def showCardsAndPoints(self):
         self.countPoints()
-        self.showPoints()
         self.showCards()
+        self.showPoints()
 
     def takeEndCards(self, current_round):
         print('\nThe dealer now takes his cars.\n')

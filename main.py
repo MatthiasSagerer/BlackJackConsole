@@ -128,7 +128,7 @@ def blackJackConsole():
             player.lost_round = False
 
             round = Round()
-            
+
             dealer.resetCards()
             player.resetCards()
 
@@ -139,6 +139,8 @@ def blackJackConsole():
 
             dealer.showCardsAndPoints()
             player.showCardsAndPoints()
+
+            # print(f'{len(round.card_deck)} cards left in the deck.') # TODO: DELETE THIS LINE
 
             player.askForAnotherCard()
 
@@ -165,7 +167,6 @@ def blackJackConsole():
                     player.loses()
                 elif player.points[0] == dealer.points:
                     itsATie(player)
-            print(f'{len(deck)} cards left in the deck.')
             if player.money > 0:
                 lap = askForNewRound()
         if not lap:
@@ -180,11 +181,7 @@ if __name__ == "__main__":
     # blackJackwithoutClasses()
     blackJackConsole()
 
-# TODO: implement game class with game instance:
-#           - integrate game instance
-#           - integrate game instance's card deck
-#           - test if card_deck is used properly
-
+# BUG fix: dealer's cards are not shown at the end of each round
 # TODO: show starting money and increase in % at the end of every game
 
 # TODO: When class implementation is finished:
