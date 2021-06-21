@@ -181,7 +181,6 @@ if __name__ == "__main__":
     # blackJackwithoutClasses()
     blackJackConsole()
 
-# BUG fix: dealer's cards are not shown at the end of each round
 # TODO: show starting money and increase in % at the end of every game
 
 # TODO: When class implementation is finished:
