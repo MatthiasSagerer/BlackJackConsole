@@ -181,8 +181,6 @@ if __name__ == "__main__":
     # blackJackwithoutClasses()
     blackJackConsole()
 
-# TODO: show starting money and increase in % at the end of every game
-
 # TODO: When class implementation is finished:
 #           - check if the deck gets reset in any possible game course
 #           - test new implementation

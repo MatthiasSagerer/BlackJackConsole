@@ -144,6 +144,18 @@ class Player(GameParticipant):
     def showEndResult(self):
         print(
             f'\nYour started with ${self.starting_money} and now have ${self.money}!')
+        if self.money > self.starting_money:
+            increase_in_percent = round(
+                (self.money/self.starting_money - 1) * 100, 2)
+            print(
+                f'This means you increased your money by ${self.money-self.starting_money}.')
+            print(f'That\'s an increase by {increase_in_percent}% !')
+        elif self.money < self.starting_money:
+            decrease_in_percent = round(
+                (1 - self.money/self.starting_money) * 100, 2)
+            print(
+                f'This means you decreased your money by ${self.starting_money-self.money}.')
+            print(f'That\'s an decrease by {decrease_in_percent}% !')
 
 
 class Dealer(GameParticipant):
