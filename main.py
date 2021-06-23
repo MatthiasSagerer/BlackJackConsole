@@ -140,8 +140,6 @@ def blackJackConsole():
             dealer.showCardsAndPoints()
             player.showCardsAndPoints()
 
-            # print(f'{len(round.card_deck)} cards left in the deck.') # TODO: DELETE THIS LINE
-
             player.askForAnotherCard()
 
             while player.another_card:
@@ -181,8 +179,8 @@ if __name__ == "__main__":
     # blackJackwithoutClasses()
     blackJackConsole()
 
+# TODO: don't display "Good luck in the next round, if the player ran out of money"
 # TODO: When class implementation is finished:
-#           - check if the deck gets reset in any possible game course
 #           - test new implementation
 #           - edit imports
 #           - DELETE ORIGINAL CODE!
