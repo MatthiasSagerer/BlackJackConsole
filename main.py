@@ -179,7 +179,6 @@ if __name__ == "__main__":
     # blackJackwithoutClasses()
     blackJackConsole()
 
-# TODO: don't display "Good luck in the next round, if the player ran out of money"
 # TODO: When class implementation is finished:
 #           - test new implementation
 #           - edit imports

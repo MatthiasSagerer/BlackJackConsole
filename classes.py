@@ -124,8 +124,9 @@ class Player(GameParticipant):
     def lostBecauseToManyPoints(self):
         self.money -= self.current_bet
         print('\nUnfortunately you lost this round')
-        print(f'You got ${self.money} left.')
-        print('\nGood luck in the next round!')
+        if self.money > 0:
+            print(f'You got ${self.money} left.')
+            print('\nGood luck in the next round!')
 
         self.lost_round = True
 
@@ -138,8 +139,9 @@ class Player(GameParticipant):
         self.money -= self.current_bet
         print('\nUnfortunately you lost this round.')
         print(f'You\'ve lost ${self.current_bet} in this round.')
-        print(f'You got ${self.money} left.')
-        print('\nGood luck next time!\n')
+        if self.money > 0:
+            print(f'You got ${self.money} left.')
+            print('\nGood luck next time!\n')
 
     def showEndResult(self):
         print(
