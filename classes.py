@@ -112,7 +112,7 @@ class Player(GameParticipant):
         self.showPoints()
 
     def askForAnotherCard(self):
-        answer = input('Would you like to have another card? (y/n): ')
+        answer = input('\nWould you like to have another card? (y/n): ')
         while answer != 'y' and answer != 'n':
             print('Please answer only by entering \'y\' or \'n\'.')
             answer = input('Would you like to have another card? (y/n): ')
@@ -123,17 +123,17 @@ class Player(GameParticipant):
 
     def lostBecauseToManyPoints(self):
         self.money -= self.current_bet
-        print('\nUnfortunately you lost this round')
+        print('\nUnfortunately you lost this round.')
         if self.money > 0:
             print(f'You got ${self.money} left.')
-            print('\nGood luck in the next round!')
+            print('Good luck in the next round!\n')
 
         self.lost_round = True
 
     def wins(self):
         self.money += self.current_bet
-        print(f'\nCongratulations! You\'ve won ${self.current_bet}')
-        print(f'You now have ${self.money}')
+        print(f'\nCongratulations! You\'ve won ${self.current_bet}!')
+        print(f'You now have ${self.money}.\n')
 
     def loses(self):
         self.money -= self.current_bet
@@ -157,7 +157,7 @@ class Player(GameParticipant):
                 (1 - self.money/self.starting_money) * 100, 2)
             print(
                 f'This means you decreased your money by ${self.starting_money-self.money}.')
-            print(f'That\'s an decrease by {decrease_in_percent}% !')
+            print(f'That\'s an decrease by {decrease_in_percent}%.')
 
 
 class Dealer(GameParticipant):

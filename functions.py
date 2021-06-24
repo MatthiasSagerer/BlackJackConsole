@@ -86,9 +86,9 @@ def intInput(string):
 
 
 def itsATie(play):
-    print('It\'s a tie!')
+    print('\nIt\'s a tie!')
     print(f'You got ${play.money} left.')
-    print('Good luck in the next round!')
+    print('Good luck in the next round!\n')
 
 
 def askForNewRound():
@@ -113,3 +113,7 @@ def lostRoundAskForNew():
         return True
     elif another_round == 'n':
         return False
+
+
+def newLine():
+    print('')

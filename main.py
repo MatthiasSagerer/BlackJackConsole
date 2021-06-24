@@ -4,7 +4,7 @@ Created on Mon Nov 16 21:16:55 2020
 
 @author: Matthias Sagerer
 """
-from functions import lostRoundAskForNew, newDeck, randCard, countDealerPoints, countPlayerPoints, displayPlayerScore, intInput, itsATie, askForNewRound
+from functions import newLine, lostRoundAskForNew, newDeck, randCard, countDealerPoints, countPlayerPoints, displayPlayerScore, intInput, itsATie, askForNewRound
 from classes import Player, Dealer, Round
 from classes import deck
 
@@ -134,6 +134,8 @@ def blackJackConsole():
 
             player.makeABet()
 
+            newLine()
+
             player.takeCards(round, num=2)
             dealer.takeCards(round)
 
@@ -153,6 +155,7 @@ def blackJackConsole():
                     player.lostBecauseToManyPoints()
                 else:
                     player.askForAnotherCard()
+                    newLine()
             if not player.lost_round:
                 dealer.takeEndCards(round)
 
@@ -180,7 +183,6 @@ if __name__ == "__main__":
     blackJackConsole()
 
 # TODO: When class implementation is finished:
-#           - test new implementation
 #           - edit imports
 #           - DELETE ORIGINAL CODE!
 
