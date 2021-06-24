@@ -1,20 +1,8 @@
 from random import randint
-from functions import intInput, randCard, sumOfList
-from functions import deck
+from functions import intInput, sumOfList
 
 POINTS = {"2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7,
           "8": 8, "9": 9, "10": 10, "J": 10, "Q": 10, "K": 10, "A": 11}
-
-deck = []
-
-
-def newDeck():
-    global deck
-    deck = []
-    NEW_DECK = ["2", "3", "4", "5", "6", "7",
-                "8", "9", "10", "J", "Q", "K", "A"]
-    for i in range(4):
-        deck.extend(NEW_DECK)
 
 
 class Round():
@@ -197,17 +185,3 @@ class Dealer(GameParticipant):
         while self.points <= 16:
             self.takeCards(current_round)
             self.countPoints()
-
-
-# Testing (TODO: DELETE WHEN CODE FINISHED)
-
-if __name__ == "__main__":
-    mario = Player()
-    dealer = Dealer()
-    round = Round()
-
-    mario.takeCards(round, num=3)
-    dealer.takeCards(round, num=2)
-
-    print(f'Mario\'s cards: {mario.cards}')
-    print(f'{len(round.card_deck)} cards left in the deck.')
