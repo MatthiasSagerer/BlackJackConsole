@@ -70,6 +70,8 @@ def blackJackConsole():
         else:
             playing = lostRoundAskForNew()
     print('\nThank you for playing. See you next time!')
+    
+    input("Press Enter to exit..")
 
 
 if __name__ == "__main__":
