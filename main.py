@@ -69,8 +69,10 @@ def blackJackConsole():
             playing = False
         else:
             playing = lostRoundAskForNew()
-    print('\nThank you for playing. See you next time!')
+    if player.starting_money != 0:
+        print('\nThank you for playing. See you next time!')
     
+    print('\nIcon made by "Flat Icon" from www.flaticon.com.')
     input("Press Enter to exit..")
 
 
