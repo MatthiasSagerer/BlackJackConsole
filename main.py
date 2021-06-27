@@ -72,7 +72,7 @@ def blackJackConsole():
     if player.starting_money != 0:
         print('\nThank you for playing. See you next time!')
     
-    print('\nIcon made by "Flat Icon" from www.flaticon.com.')
+    print('\nIcon made by "Flat Icon" from www.flaticon.com')
     input("Press Enter to exit..")
 
 
