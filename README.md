@@ -9,5 +9,4 @@ Download size "Black Jack Console.exe": 7.28 MB
 
 ### Screenshots
 
-The screenshot below shows an example for a Black Jack game with the code in this repository.
-![Example Black Jack Game](black_jack_console_screenshots/black_jack_console_screenshots_game_example.png "Example Game")
+<img src="black_jack_console_screenshots/black_jack_console_screenshots_game_example.png" alt="Example Black Jack Game" width="400px">
