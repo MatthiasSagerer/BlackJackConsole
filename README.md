@@ -7,6 +7,6 @@ I'll might add an option to save the current bank balance in the future.
 
 Download size "Black Jack Console.exe": 7.28 MB
 
-### Screenshots
+### Screenshot
 
 <img src="black_jack_console_screenshots/black_jack_console_screenshots_game_example.png" alt="Example Black Jack Game" width="400px">
