@@ -181,7 +181,7 @@ class Dealer(GameParticipant):
         self.showPoints()
 
     def takeEndCards(self, current_round):
-        print('\nThe dealer now takes his cars.\n')
+        print('\nThe dealer now takes his cards.\n')
         while self.points <= 16:
             self.takeCards(current_round)
             self.countPoints()
