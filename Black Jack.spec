@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['main.py'],
-             pathex=['C:\\Users\\Matthias Sagerer\\Documents\\coding\\projects\\black_jack_console'],
+             pathex=['C:\\Users\\Matthias Sagerer\\Documents\\Work\\coding\\projects\\black_jack_console'],
              binaries=[],
              datas=[],
              hiddenimports=[],
